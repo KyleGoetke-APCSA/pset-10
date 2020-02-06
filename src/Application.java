@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Application {
 
     private Scanner in;
@@ -5,12 +7,6 @@ public class Application {
 
     public Application() {
         this.in = new Scanner(System.in);
-
-        try {
-            PowerSchool.initialize(false);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     //////// STARTUP METHOD ///////////////////////////////////////////////////////////////
