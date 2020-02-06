@@ -12,7 +12,9 @@ public class Application {
     //////// STARTUP METHOD ///////////////////////////////////////////////////////////////
 
     public void startup() {
-
+        System.out.print("\nEnter your input: ");
+        String test = in.nextLine();
+        System.out.print(test);
     }
 
     public void selectWord() {
