@@ -2,37 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/lambda/BulkDataOperations/BulkDataOperations.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/lambda/BulkDataOperations/BulkDataOperations.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/webservices/EbayClient/EbayClient.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/webservices/EbayClient/EbayClient.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/webservices/EbayServer/EbayServer.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/webservices/EbayServer/EbayServer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/javafx_samples/src/MandelbrotSet/MandelbrotSet.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/javafx_samples/src/MandelbrotSet/MandelbrotSet.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/javafx_samples/src/Modena/Modena.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/javafx_samples/src/Modena/Modena.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/annotations/DependencyChecker/PluginChecker/PluginChecker.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/annotations/DependencyChecker/PluginChecker/PluginChecker.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/annotations/DependencyChecker/Plugins/Plugins.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/annotations/DependencyChecker/Plugins/Plugins.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/annotations/Validator/Validator.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/annotations/Validator/Validator.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/javafx_samples/src/Ensemble8/src/app/app.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/javafx_samples/src/Ensemble8/src/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/jnlp/servlet/apps/app1/app1.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/jnlp/servlet/apps/app1/app1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/jnlp/servlet/apps/app2/app2.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/jnlp/servlet/apps/app2/app2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/jnlp/servlet/apps/app3/app3.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/jnlp/servlet/apps/app3/app3.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/applets/applets.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/applets/applets.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/javafx_samples/src/Ensemble8/src/compiletime/compiletime.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/javafx_samples/src/Ensemble8/src/compiletime/compiletime.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/jnlp/corba/corba.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/jnlp/corba/corba.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/forkjoin/forkjoin.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/forkjoin/forkjoin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/javafx_samples/src/Ensemble8/src/generated/generated.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/javafx_samples/src/Ensemble8/src/generated/generated.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/jmx/jmx.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/jmx/jmx.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/jnlp/jreinstaller/jreinstaller.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/jnlp/jreinstaller/jreinstaller.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/lambda/lambda.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/lambda/lambda.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/javafx_samples/src/3DViewer/src/main/main.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/javafx_samples/src/3DViewer/src/main/main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/nio/nio.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/nio/nio.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/nio/nio1.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/nio/nio1.iml" />
       <module fileurl="file://$PROJECT_DIR$/pset-10.iml" filepath="$PROJECT_DIR$/pset-10.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/jnlp/raf/raf.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/jnlp/raf/raf.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/javafx_samples/src/Ensemble8/src/samples/samples.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/javafx_samples/src/Ensemble8/src/samples/samples.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/scripting/scripting.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/scripting/scripting.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/jnlp/servlet/src/servlet.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/jnlp/servlet/src/servlet.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/javafx_samples/src/3DViewer/src/test/test.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/javafx_samples/src/3DViewer/src/test/test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/try-with-resources/try-with-resources.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/try-with-resources/try-with-resources.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/jnlp/webpad/webpad.iml" filepath="$PROJECT_DIR$/jdk-8u241-demos-and-samples/sample/jnlp/webpad/webpad.iml" />
     </modules>
   </component>
 </project>

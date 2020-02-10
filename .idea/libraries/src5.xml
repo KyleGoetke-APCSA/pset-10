@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="src5">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/jvmti/gctest/src.zip!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
