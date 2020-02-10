@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jpda">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/jpda/examples.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/jpda/src.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

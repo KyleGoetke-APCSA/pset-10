@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/javafx_samples/src/Ensemble8/lib/lucene-queryparser-7.7.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/javafx_samples/src/Ensemble8/lib/lucene-grouping-7.7.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/javafx_samples/src/Ensemble8/lib/lucene-core-7.7.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

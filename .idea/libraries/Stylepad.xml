@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Stylepad">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/jfc/Stylepad/src.zip!/" />
+      <root url="jar://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/jfc/Stylepad/Stylepad.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

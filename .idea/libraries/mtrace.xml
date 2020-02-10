@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="mtrace">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/jvmti/mtrace/mtrace.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/jvmti/mtrace/src.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

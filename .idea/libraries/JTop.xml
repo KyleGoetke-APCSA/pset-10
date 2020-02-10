@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="JTop">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/management/JTop/JTop.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jdk-8u241-demos-and-samples/demo/management/JTop/src.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
