@@ -14,7 +14,6 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 // NOTES TO SELF:
-// Install IntelliJ
 // Download JavaFX 13 from Gluon
 // Import everything into IntelliJ
 // https://www.youtube.com/watch?v=YtKF1JKtRWM&list=PL6gx4Cwl9DGBzfXLWLSYVy8EbTdpGbUIG&index=9
@@ -31,41 +30,47 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        // Initialize and set up the window
         window = primaryStage;
         window.setTitle("Kyle's eDictionary");
         window.setOnCloseRequest(e -> closeProgram());
         StackPane layout = new StackPane();
 
-        Button add = new Button("Add");
-        Button remove = new Button("Remove");
+        // Initialize the add & remove buttons
+        Button addButton = new Button("Add");
+        Button removeButton = new Button("Remove");
 
+        // Initialize the sorting buttons and assign to the ToggleGroup
         ToggleGroup group = new ToggleGroup();
-        RadioButton ascending = new RadioButton("Asc");
-        ascending.setToggleGroup(group);
-        RadioButton descending = new RadioButton("Desc");
-        descending.setToggleGroup(group);
+        RadioButton ascendingRB = new RadioButton("Asc");
+        ascendingRB.setToggleGroup(group);
+        RadioButton descendingRB = new RadioButton("Desc");
+        descendingRB.setToggleGroup(group);
         TextField searchBar = new TextField("Search");
 
+        // Initialize the FlowPane and add all necessary children to it
         FlowPane flowpane = new FlowPane();
-        flowpane.getChildren().addAll(add, remove, ascending, descending, searchBar);
+        flowpane.getChildren().addAll(addButton, removeButton, searchBar, ascendingRB, descendingRB);
         flowpane.setHgap(10);
         flowpane.setVgap(10);
 
+        // Initialize the scene and display it
         Scene scene = new Scene(flowpane, 900, 450);
         window.setScene(scene);
         window.show();
     }
 
-    private void handleOptions(RadioButton ascending, RadioButton descending){
+    // Handles actions associated with sorting
+    private void handleOptions(RadioButton ascending, RadioButton descending) {
         String message = "Users order:\n";
 
         if(ascending.isSelected())
             message += "Ascending\n";
-            descending.setSelected(true);
+            Sorting.Ascending();
 
         if(descending.isSelected())
             message += "Descending\n";
-            ascending.setSelected(true);
+            Sorting.Descending();
 
         System.out.println(message);
     }
