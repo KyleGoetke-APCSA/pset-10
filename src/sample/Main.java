@@ -3,13 +3,15 @@ package sample;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import javafx.scene.layout.HBox;
 
 // NOTES TO SELF:
 // Install IntelliJ
@@ -30,20 +32,42 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
-        window.setTitle("Window Title");
+        window.setTitle("Kyle's eDictionary");
         window.setOnCloseRequest(e -> closeProgram());
         StackPane layout = new StackPane();
-//
-//        HBox leftMenu = new HBox();
-//        Button addButton = new Button("Add");
-//        Button removeButton = new Button("Remove");
-//        leftMenu.getChildren().addAll(addButton, removeButton);
-//        BorderPane leftBorderPane = new BorderPane();
-//        leftBorderPane.setTop(leftMenu);
 
-        Scene scene = new Scene(layout, 300, 250);
+        Button add = new Button("Add");
+        Button remove = new Button("Remove");
+
+        ToggleGroup group = new ToggleGroup();
+        RadioButton ascending = new RadioButton("Asc");
+        ascending.setToggleGroup(group);
+        RadioButton descending = new RadioButton("Desc");
+        descending.setToggleGroup(group);
+        TextField searchBar = new TextField("Search");
+
+        FlowPane flowpane = new FlowPane();
+        flowpane.getChildren().addAll(add, remove, ascending, descending, searchBar);
+        flowpane.setHgap(10);
+        flowpane.setVgap(10);
+
+        Scene scene = new Scene(flowpane, 900, 450);
         window.setScene(scene);
         window.show();
+    }
+
+    private void handleOptions(RadioButton ascending, RadioButton descending){
+        String message = "Users order:\n";
+
+        if(ascending.isSelected())
+            message += "Ascending\n";
+            descending.setSelected(true);
+
+        if(descending.isSelected())
+            message += "Descending\n";
+            ascending.setSelected(true);
+
+        System.out.println(message);
     }
 
     private void closeProgram() {
