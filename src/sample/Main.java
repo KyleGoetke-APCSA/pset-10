@@ -40,6 +40,10 @@ public class Main extends Application {
         Button addButton = new Button("Add");
         Button removeButton = new Button("Remove");
 
+        // Handles actions associated with add & remove buttons
+        addButton.setOnAction(e -> System.out.println("Add"));
+        removeButton.setOnAction(e -> System.out.println("Remove"));
+
         // Initialize the sorting buttons and assign to the ToggleGroup
         ToggleGroup group = new ToggleGroup();
         RadioButton ascendingRB = new RadioButton("Asc");
@@ -47,6 +51,10 @@ public class Main extends Application {
         RadioButton descendingRB = new RadioButton("Desc");
         descendingRB.setToggleGroup(group);
         TextField searchBar = new TextField("Search");
+
+        // Handles actions associated with sorting
+        ascendingRB.setOnAction(e -> System.out.println("Ascending"));
+        descendingRB.setOnAction(e -> System.out.println("Descending"));
 
         // Initialize the FlowPane and add all necessary children to it
         FlowPane flowpane = new FlowPane();
@@ -58,21 +66,6 @@ public class Main extends Application {
         Scene scene = new Scene(flowpane, 900, 450);
         window.setScene(scene);
         window.show();
-    }
-
-    // Handles actions associated with sorting
-    private void handleOptions(RadioButton ascending, RadioButton descending) {
-        String message = "Users order:\n";
-
-        if(ascending.isSelected())
-            message += "Ascending\n";
-            Sorting.Ascending();
-
-        if(descending.isSelected())
-            message += "Descending\n";
-            Sorting.Descending();
-
-        System.out.println(message);
     }
 
     private void closeProgram() {
