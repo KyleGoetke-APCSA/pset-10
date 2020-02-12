@@ -12,23 +12,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-
 import java.io.File;
 
 // NOTES TO SELF:
 // Download JavaFX 13 from Gluon
 // Import everything into IntelliJ
-// https://www.youtube.com/watch?v=UD_SJ07mQlM&list=PL6gx4Cwl9DGBzfXLWLSYVy8EbTdpGbUIG&index=25
+// https://www.youtube.com/watch?v=MAiKpkQqb6Q&list=PL6gx4Cwl9DGBzfXLWLSYVy8EbTdpGbUIG&index=26
 // https://www.one-tab.com/page/0vjtNHudTpWFCDc7cUWfnA
 
 public class Main extends Application {
-
     Stage window;
     Button button;
-
-    public static void main(String[] args) {
-        launch(args);
-    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -71,9 +65,14 @@ public class Main extends Application {
         window.show();
     }
 
+    // Asks the user if they are sure they want to close the program
     private void closeProgram() {
-        //Boolean answer = ConfirmBox.display("Title", "Are you sure you want to exit?");
+        // Boolean answer = ConfirmBox.display("Title", "Are you sure you want to exit?");
         System.out.println("Safely closed the program");
         window.close();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
