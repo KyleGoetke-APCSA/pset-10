@@ -1,4 +1,5 @@
 .root {
-    -fx-background-color: #ffffff;
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
 }
 
