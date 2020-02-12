@@ -13,10 +13,12 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+import java.io.File;
+
 // NOTES TO SELF:
 // Download JavaFX 13 from Gluon
 // Import everything into IntelliJ
-// https://www.youtube.com/watch?v=YtKF1JKtRWM&list=PL6gx4Cwl9DGBzfXLWLSYVy8EbTdpGbUIG&index=9
+// https://www.youtube.com/watch?v=UD_SJ07mQlM&list=PL6gx4Cwl9DGBzfXLWLSYVy8EbTdpGbUIG&index=25
 // https://www.one-tab.com/page/0vjtNHudTpWFCDc7cUWfnA
 
 public class Main extends Application {
@@ -30,7 +32,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // Initialize and set up the window
+        // Initialize and set up the window and other things for the program
         window = primaryStage;
         window.setTitle("Kyle's eDictionary");
         window.setOnCloseRequest(e -> closeProgram());
@@ -64,6 +66,7 @@ public class Main extends Application {
 
         // Initialize the scene and display it
         Scene scene = new Scene(flowpane, 900, 450);
+        scene.getStylesheets().add("/sample/styles.css");
         window.setScene(scene);
         window.show();
     }
