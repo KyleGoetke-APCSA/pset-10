@@ -28,8 +28,8 @@ public class Main extends Application {
         // Initialize Add Word & Remove Word buttons and assign actions on click
         Button addButton = new Button("Add");
         Button removeButton = new Button("Remove");
-        addButton.setOnAction(e -> /*System.out.println("Add")*/ Dictionary.addWord());
-        removeButton.setOnAction(e -> /*System.out.println("Remove")*/ Dictionary.removeWord());
+        addButton.setOnAction(e -> Dictionary.addWord());       // calls addWord method
+        removeButton.setOnAction(e -> Dictionary.removeWord()); // calls removeWord method
 
         // Initialize the Search box and the sorting buttons, group them under ToggleGroup, and assign actions on click
         ToggleGroup group = new ToggleGroup();
