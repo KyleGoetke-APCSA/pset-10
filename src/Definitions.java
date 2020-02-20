@@ -6,6 +6,7 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 
 public class Definitions {
+
     private String definition;
     private String partOfSpeech;
 
@@ -13,4 +14,6 @@ public class Definitions {
         this.definition = definition;
         this.partOfSpeech = partsOfSpeech;
     }
+
+
 }
