@@ -25,23 +25,19 @@ public class Main extends Application {
         window.setOnCloseRequest(e -> closeProgram());
         StackPane layout = new StackPane();
 
-        // Initialize the add & remove buttons
+        // Initialize Add Word & Remove Word buttons and assign actions on click
         Button addButton = new Button("Add");
         Button removeButton = new Button("Remove");
+        addButton.setOnAction(e -> /*System.out.println("Add")*/ Dictionary.addWord());
+        removeButton.setOnAction(e -> /*System.out.println("Remove")*/ Dictionary.removeWord());
 
-        // Handles actions associated with add & remove buttons
-        addButton.setOnAction(e -> System.out.println("Add"));
-        removeButton.setOnAction(e -> System.out.println("Remove"));
-
-        // Initialize the sorting buttons and assign to the ToggleGroup
+        // Initialize the Search box and the sorting buttons, group them under ToggleGroup, and assign actions on click
         ToggleGroup group = new ToggleGroup();
         RadioButton ascendingRB = new RadioButton("Asc");
         ascendingRB.setToggleGroup(group);
         RadioButton descendingRB = new RadioButton("Desc");
         descendingRB.setToggleGroup(group);
         TextField searchBar = new TextField("Search");
-
-        // Handles actions associated with sorting
         ascendingRB.setOnAction(e -> System.out.println("Ascending"));
         descendingRB.setOnAction(e -> System.out.println("Descending"));
 
