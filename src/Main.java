@@ -1,10 +1,4 @@
-package sample;
-
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
@@ -12,7 +6,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import java.io.File;
 
 // NOTES TO SELF:
 // Download JavaFX 13 from Gluon
@@ -60,7 +53,7 @@ public class Main extends Application {
 
         // Initialize the scene and display it
         Scene scene = new Scene(flowpane, 900, 450);
-        scene.getStylesheets().add("/sample/styles.css");
+        scene.getStylesheets().add("/styles.css");
         window.setScene(scene);
         window.show();
     }
