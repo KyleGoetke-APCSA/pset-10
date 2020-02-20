@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
-
 import java.util.Collections;
+
 public class Words {
 
     public String word;
@@ -18,21 +18,20 @@ public class Words {
         this.definitions.add(definitions);
         Collections.copy(this.synonyms, synonyms);
         Collections.copy(this.antonyms, antonyms);
-    }
 
+    }
     public void setDefinition(Definitions definitions) {
         this.definitions.add(definitions);
     }
-
     public void addSynonym(String synonym) {
         this.synonyms.add(synonym);
     }
-
     public void addAntonym(String antonym) {
         this.antonyms.add(antonym);
     }
-
     public String getSpelling() {
         return this.word;
     }
+
+
 }
