@@ -14,11 +14,10 @@ import java.net.URI;
 public class htmltest {
 
     public void main(String[] args) {
-        WebEngine WebEngine = WebView.getEngine();
-        File index = new File("//html/test.html");
-        WebEngine.load("file://" + index.toURI().toString().substring(5));
-        WebEngine.load("file://" + index.toURI().toString().substring(5)));
-        System.out.println("file://" + index.toURI().toString().substring(5));
+
+        WebView browser = new WebView();
+        WebEngine webEngine = browser.getEngine();
+        webEngine.load("/webView/main.html");
     }
 }
 
