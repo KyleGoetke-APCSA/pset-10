@@ -1,13 +1,13 @@
-import java.io.*;
+//import java.io.*;
 import java.util.ArrayList;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
-import com.google.gson.Gson;
-import com.google.gson.stream.JsonReader;
+//import com.google.gson.Gson;
+//import com.google.gson.stream.JsonReader;
 
 public class Dictionary {
 	public static Words[] wordList;
