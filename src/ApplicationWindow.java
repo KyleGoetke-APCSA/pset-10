@@ -12,12 +12,17 @@ import java.awt.ScrollPane;
 import java.io.FileNotFoundException;
 
 import javax.swing.ButtonGroup;
+import java.awt.event.ActionEvent;
 
 public class ApplicationWindow {
 
 	private JFrame frmKylesEdictionary;
 	private JTextField textField;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private final Action addAction = new SwingAction();
+	private final Action removeAction = new SwingAction_1();
+	private final Action ascAction = new SwingSortAction();
+	private final Action descAction = new SwingSortAction_1();
 
 	/**
 	 * Launch the application.
@@ -58,6 +63,7 @@ public class ApplicationWindow {
 		 * Button to add word
 		 */
 		JButton btnAdd = new JButton("ADD");
+		btnAdd.setAction(addAction);
 		btnAdd.setBounds(10, 11, 89, 23);
 		frmKylesEdictionary.getContentPane().add(btnAdd);
 
@@ -65,6 +71,7 @@ public class ApplicationWindow {
 		 * Button to remove word
 		 */
 		JButton btnRemove = new JButton("REMOVE");
+		btnRemove.setAction(removeAction);
 		btnRemove.setBounds(109, 11, 89, 23);
 		frmKylesEdictionary.getContentPane().add(btnRemove);
 
@@ -99,5 +106,51 @@ public class ApplicationWindow {
 		ScrollPane wordInfo = new ScrollPane();
 		wordInfo.setBounds(214, 11, 725, 452);
 		frmKylesEdictionary.getContentPane().add(wordInfo);
+		private static final long serialVersionUID = 1L;
+		public SwingAction() {
+			putValue(NAME, "Add");
+			putValue(SHORT_DESCRIPTION, "Opens dialogue to add a word");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
+	}
+
+	/**
+	 * Action for Aemove button
+	 */
+	private class SwingAction_1 extends AbstractAction {
+		private static final long serialVersionUID = 1L;
+		public SwingAction_1() {
+			putValue(NAME, "Remove");
+			putValue(SHORT_DESCRIPTION, "Opens dialogue to remove a word");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
+	}
+
+	/**
+	 * Action for Ascending sort option
+	 */
+	private class SwingSortAction extends AbstractAction {
+		private static final long serialVersionUID = 1L;
+		public SwingSortAction() {
+			putValue(NAME, "Asc");
+			putValue(SHORT_DESCRIPTION, "Sorts words in ascending alphabetical order");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
+	}
+
+	/**
+	 * Action for Descending sort option
+	 */
+	private class SwingSortAction_1 extends AbstractAction {
+		private static final long serialVersionUID = 1L;
+		public SwingSortAction_1() {
+			putValue(NAME, "Desc");
+			putValue(SHORT_DESCRIPTION, "Sorts words in descending alphabetical order");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
 	}
 }
