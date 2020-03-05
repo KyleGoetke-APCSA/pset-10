@@ -12,10 +12,6 @@ public class ApplicationWindow {
 
 	private JFrame frmKylesEdictionary;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-	private final Action addAction = new SwingAction();
-	private final Action removeAction = new SwingAction_1();
-	private final Action ascAction = new SwingSortAction();
-	private final Action descAction = new SwingSortAction_1();
 
 	/**
 	 * Launch the application.
@@ -56,7 +52,11 @@ public class ApplicationWindow {
 		 * Button to add word
 		 */
 		JButton btnAdd = new JButton("ADD");
-		btnAdd.setAction(addAction);
+		btnAdd.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent evt) {
+		        System.out.println("Add");
+		    }
+		});
 		btnAdd.setBounds(10, 11, 89, 23);
 		frmKylesEdictionary.getContentPane().add(btnAdd);
 
@@ -64,7 +64,11 @@ public class ApplicationWindow {
 		 * Button to remove word
 		 */
 		JButton btnRemove = new JButton("REMOVE");
-		btnRemove.setAction(removeAction);
+		btnRemove.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent evt) {
+		        System.out.println("Remove");
+		    }
+		});
 		btnRemove.setBounds(109, 11, 89, 23);
 		frmKylesEdictionary.getContentPane().add(btnRemove);
 
@@ -81,7 +85,11 @@ public class ApplicationWindow {
 		 * Radio button to sort in ascending order
 		 */
 		JRadioButton rdbtnAsc = new JRadioButton("Asc");
-		rdbtnAsc.setAction(ascAction);
+		rdbtnAsc.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent evt) {
+		        System.out.println("Ascending");
+		    }
+		});
 		rdbtnAsc.setToolTipText("Sorts in ascending order");
 		buttonGroup.add(rdbtnAsc);
 		rdbtnAsc.setBounds(36, 70, 63, 23);
@@ -91,7 +99,11 @@ public class ApplicationWindow {
 		 * Radio button to sort in descending order
 		 */
 		JRadioButton rdbtnDesc = new JRadioButton("Desc");
-		rdbtnDesc.setAction(descAction);
+		rdbtnDesc.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent evt) {
+		        System.out.println("Descending");
+		    }
+		});
 		rdbtnDesc.setToolTipText("Sorts in descending order");
 		buttonGroup.add(rdbtnDesc);
 		rdbtnDesc.setBounds(122, 70, 54, 23);
@@ -122,57 +134,5 @@ public class ApplicationWindow {
 			DLM.addElement(i);
 		}
 		list.setModel(DLM);
-	}
-
-	/**
-	 * Action for Add button
-	 */
-	private class SwingAction extends AbstractAction {
-		private static final long serialVersionUID = 1L;
-		public SwingAction() {
-			putValue(NAME, "Add");
-			putValue(SHORT_DESCRIPTION, "Opens dialogue to add a word");
-		}
-		public void actionPerformed(ActionEvent e) {
-		}
-	}
-
-	/**
-	 * Action for Aemove button
-	 */
-	private class SwingAction_1 extends AbstractAction {
-		private static final long serialVersionUID = 1L;
-		public SwingAction_1() {
-			putValue(NAME, "Remove");
-			putValue(SHORT_DESCRIPTION, "Opens dialogue to remove a word");
-		}
-		public void actionPerformed(ActionEvent e) {
-		}
-	}
-
-	/**
-	 * Action for Ascending sort option
-	 */
-	private class SwingSortAction extends AbstractAction {
-		private static final long serialVersionUID = 1L;
-		public SwingSortAction() {
-			putValue(NAME, "Asc");
-			putValue(SHORT_DESCRIPTION, "Sorts words in ascending alphabetical order");
-		}
-		public void actionPerformed(ActionEvent e) {
-		}
-	}
-
-	/**
-	 * Action for Descending sort option
-	 */
-	private class SwingSortAction_1 extends AbstractAction {
-		private static final long serialVersionUID = 1L;
-		public SwingSortAction_1() {
-			putValue(NAME, "Desc");
-			putValue(SHORT_DESCRIPTION, "Sorts words in descending alphabetical order");
-		}
-		public void actionPerformed(ActionEvent e) {
-		}
 	}
 }
