@@ -85,6 +85,8 @@ public class ApplicationWindow {
 		 * Radio button to sort in ascending order
 		 */
 		JRadioButton rdbtnAsc = new JRadioButton("Asc");
+		rdbtnAsc.setAction(ascAction);
+		rdbtnAsc.setToolTipText("Sorts in ascending order");
 		buttonGroup.add(rdbtnAsc);
 		rdbtnAsc.setBounds(36, 70, 63, 23);
 		frmKylesEdictionary.getContentPane().add(rdbtnAsc);
@@ -93,6 +95,8 @@ public class ApplicationWindow {
 		 * Radio button to sort in descending order
 		 */
 		JRadioButton rdbtnDesc = new JRadioButton("Desc");
+		rdbtnDesc.setAction(descAction);
+		rdbtnDesc.setToolTipText("Sorts in descending order");
 		buttonGroup.add(rdbtnDesc);
 		rdbtnDesc.setBounds(122, 70, 54, 23);
 		frmKylesEdictionary.getContentPane().add(rdbtnDesc);
