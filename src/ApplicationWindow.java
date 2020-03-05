@@ -69,10 +69,6 @@ public class ApplicationWindow {
 		btnRemove.setBounds(109, 11, 89, 23);
 		frmKylesEdictionary.getContentPane().add(btnRemove);
 
-		textField = new JTextField("Search");
-		textField.setBounds(10, 45, 188, 20);
-		frmKylesEdictionary.getContentPane().add(textField);
-		textField.setColumns(10);
 
 		ScrollPane wordList = new ScrollPane();
 		wordList.setBounds(10, 99, 188, 364);
@@ -80,6 +76,10 @@ public class ApplicationWindow {
 		/**
 		 * Search box to... well... search
 		 */
+		JTextField searchBox = new JTextField();
+		searchBox.setBounds(10, 45, 188, 20);
+		frmKylesEdictionary.getContentPane().add(searchBox);
+		searchBox.setColumns(10);
 
 		/**
 		 * Radio button to sort in ascending order
