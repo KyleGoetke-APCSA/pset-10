@@ -54,10 +54,16 @@ public class ApplicationWindow {
 		frmKylesEdictionary.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmKylesEdictionary.getContentPane().setLayout(null);
 
+		/**
+		 * Button to add word
+		 */
 		JButton btnAdd = new JButton("ADD");
 		btnAdd.setBounds(10, 11, 89, 23);
 		frmKylesEdictionary.getContentPane().add(btnAdd);
 
+		/**
+		 * Button to remove word
+		 */
 		JButton btnRemove = new JButton("REMOVE");
 		btnRemove.setBounds(109, 11, 89, 23);
 		frmKylesEdictionary.getContentPane().add(btnRemove);
@@ -70,12 +76,21 @@ public class ApplicationWindow {
 		ScrollPane wordList = new ScrollPane();
 		wordList.setBounds(10, 99, 188, 364);
 		frmKylesEdictionary.getContentPane().add(wordList);
+		/**
+		 * Search box to... well... search
+		 */
 
+		/**
+		 * Radio button to sort in ascending order
+		 */
 		JRadioButton rdbtnAsc = new JRadioButton("Asc");
 		buttonGroup.add(rdbtnAsc);
 		rdbtnAsc.setBounds(36, 70, 63, 23);
 		frmKylesEdictionary.getContentPane().add(rdbtnAsc);
 
+		/**
+		 * Radio button to sort in descending order
+		 */
 		JRadioButton rdbtnDesc = new JRadioButton("Desc");
 		buttonGroup.add(rdbtnDesc);
 		rdbtnDesc.setBounds(122, 70, 54, 23);
