@@ -1,17 +1,11 @@
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JRadioButton;
-import javax.swing.JButton;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 
-import java.awt.ScrollPane;
 import java.io.FileNotFoundException;
-
-import javax.swing.ButtonGroup;
 import java.awt.event.ActionEvent;
 
 public class ApplicationWindow {
