@@ -11,7 +11,6 @@ import java.awt.event.ActionEvent;
 public class ApplicationWindow {
 
 	private JFrame frmKylesEdictionary;
-	private JTextField textField;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private final Action addAction = new SwingAction();
 	private final Action removeAction = new SwingAction_1();
@@ -70,9 +69,6 @@ public class ApplicationWindow {
 		frmKylesEdictionary.getContentPane().add(btnRemove);
 
 
-		ScrollPane wordList = new ScrollPane();
-		wordList.setBounds(10, 99, 188, 364);
-		frmKylesEdictionary.getContentPane().add(wordList);
 		/**
 		 * Search box to... well... search
 		 */
@@ -101,9 +97,37 @@ public class ApplicationWindow {
 		rdbtnDesc.setBounds(122, 70, 54, 23);
 		frmKylesEdictionary.getContentPane().add(rdbtnDesc);
 
-		ScrollPane wordInfo = new ScrollPane();
+		/**
+		 * Main container for word information and dialogues
+		 */
+		JScrollPane wordInfo = new JScrollPane();
 		wordInfo.setBounds(214, 11, 725, 452);
 		frmKylesEdictionary.getContentPane().add(wordInfo);
+
+		/**
+		 * Scroll pane that contains the list of words
+		 */
+		JScrollPane wordList = new JScrollPane();
+		wordList.setBounds(10, 99, 188, 364);
+		frmKylesEdictionary.getContentPane().add(wordList);
+
+		/**
+		 * List of words, automatically populated from the Array in Dictionary.java
+		 */
+		JList<String> list = new JList<String>();
+		wordList.setViewportView(list);
+
+		DefaultListModel<String> DLM = new DefaultListModel<String>();
+		for (String i : Dictionary.listWords()) {
+			DLM.addElement(i);
+		}
+		list.setModel(DLM);
+	}
+
+	/**
+	 * Action for Add button
+	 */
+	private class SwingAction extends AbstractAction {
 		private static final long serialVersionUID = 1L;
 		public SwingAction() {
 			putValue(NAME, "Add");
