@@ -10,6 +10,8 @@ import com.google.gson.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ApplicationWindow {
@@ -22,6 +24,7 @@ public class ApplicationWindow {
 	public static void main(String[] args) throws JsonSyntaxException, JsonIOException, FileNotFoundException {
 		getWordsDLM();
 		Dictionary.addAllWords();
+		Words[] wordList = Dictionary.wordList;
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -67,6 +70,7 @@ public class ApplicationWindow {
 		frmKylesEdictionary.setBounds(100, 100, 965, 512);
 		frmKylesEdictionary.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmKylesEdictionary.getContentPane().setLayout(null);
+		Words[] wordList = Dictionary.wordList;
 
 		/**
 		 * List of words
@@ -79,6 +83,7 @@ public class ApplicationWindow {
 		JButton btnAdd = new JButton("ADD");
 		btnAdd.addActionListener(e -> {
 		    System.out.println("Add");
+//		    addWord(wordToAdd, wordList);
 		});
 		btnAdd.setBounds(10, 11, 89, 23);
 		frmKylesEdictionary.getContentPane().add(btnAdd);
@@ -89,6 +94,7 @@ public class ApplicationWindow {
 		JButton btnRemove = new JButton("REMOVE");
 		btnRemove.addActionListener(e -> {
 		    System.out.println("Remove");
+//		    delWord(wordsToDelete, wordList);
 		});
 		btnRemove.setBounds(109, 11, 89, 23);
 		frmKylesEdictionary.getContentPane().add(btnRemove);
@@ -161,9 +167,9 @@ public class ApplicationWindow {
 		/**
 		 * Scroll pane that contains the list of words
 		 */
-		JScrollPane wordList = new JScrollPane();
-		wordList.setBounds(10, 99, 188, 364);
-		frmKylesEdictionary.getContentPane().add(wordList);
+		JScrollPane wordListSP = new JScrollPane();
+		wordListSP.setBounds(10, 99, 188, 364);
+		frmKylesEdictionary.getContentPane().add(wordListSP);
 
 		/**
 		 * Automatically populates list from the Array in Dictionary.java
@@ -181,7 +187,6 @@ public class ApplicationWindow {
 
 					try {
 						ArrayList<Words> Words = getWordClass();
-						System.out.println(Words);
 					} catch (FileNotFoundException e) {
 						e.printStackTrace();
 					}
@@ -189,7 +194,7 @@ public class ApplicationWindow {
 				}
 			}
 		});
-		wordList.setViewportView(list);
+		wordListSP.setViewportView(list);
 		DefaultListModel<String> DLM = getWordsDLM();;
 		list.setModel(DLM);
 
@@ -272,5 +277,77 @@ public class ApplicationWindow {
         	listOfWords.add(word);
         };
         return listOfWords;
+	}
+	
+	/**
+	 * AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	 */
+	public static void addWord(Words word, Words[] wordList) {
+		Gson gson=new GsonBuilder().setPrettyPrinting().create();
+		String json = gson.toJson(addToList(wordList.length, wordList, word));
+		wordList = addToList(wordList.length, wordList, word);
+		try {
+			FileWriter writer = new FileWriter(".\\JSON\\words.json");
+			wordList = addAllWords(wordList);
+			writer.write(json);
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	 */
+	public static void delWord(Words[] wordsToDel, Words[] wordList) {
+        Words newWordList[] = new Words[wordList.length - wordsToDel.length]; 
+        Boolean kill = false;
+        for (int i = 0; i < newWordList.length; i++) {
+        	kill = false;
+        	for (Words deadWord : wordsToDel) {
+        		if (wordList[i] == deadWord) {
+        			kill = true;
+        		}
+        		if (!kill) {
+            		newWordList[i] = wordList[i];
+            	} else {
+            		newWordList[i] = wordList[i + 1];
+            	}
+        	}
+        	
+        }
+
+        wordList = newWordList;
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String json = gson.toJson(wordList);
+		try {
+			FileWriter writer = new FileWriter(".\\JSON\\words.json");
+			writer.write(json);
+			writer.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+	
+	/**
+	 * AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	 */
+	public static Words[] addToList(int n, Words wordList[], Words word) { 
+        Words newWordList[] = new Words[n + 1]; 
+
+        for (int i = 0; i < n; i++) {
+            newWordList[i] = wordList[i]; 
+        }
+        newWordList[n] = word; 
+  
+        return newWordList; 
+    }
+	
+	/**
+	 * AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	 */
+	public static Words[] addAllWords(Words[] wordList) throws JsonSyntaxException, JsonIOException, FileNotFoundException {
+		wordList = new Gson().fromJson(new FileReader(".\\JSON\\words.json"), Words[].class);
+		return wordList;
 	}
 }
