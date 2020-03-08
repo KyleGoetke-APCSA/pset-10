@@ -1,14 +1,12 @@
 import java.io.FileNotFoundException;
-//import java.io.FileReader;
 import java.util.ArrayList;
-//import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 import java.util.Collections;
 
 public class Words {
-
 	public String word;
+	public String definition;
 	ArrayList<Definitions> definitions = new ArrayList<Definitions>();
 	ArrayList<String> synonyms = new ArrayList<String>();
 	ArrayList<String> antonyms = new ArrayList<String>();
@@ -18,8 +16,11 @@ public class Words {
 		this.definitions.add(definitions);
 		Collections.copy(this.synonyms, synonyms);
 		Collections.copy(this.antonyms, antonyms);
-
 	}
+
+	public String getWord() {
+        return this.word;
+    }
 
 	public void setDefinition(Definitions definitions) {
 		this.definitions.add(definitions);
@@ -48,5 +49,4 @@ public class Words {
 	public ArrayList<String> getAntonyms() {
 		return this.antonyms;
 	}
-
 }
