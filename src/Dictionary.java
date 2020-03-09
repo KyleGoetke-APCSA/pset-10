@@ -6,29 +6,29 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 
 public class Dictionary {
-	/**
-	 * Array of words, automatically populated from the JSON file
-	 */
-	public static Words[] wordList;
-	public static Words[] addAllWords() throws JsonSyntaxException, JsonIOException, FileNotFoundException {
-		wordList = new Gson().fromJson(new FileReader(".\\JSON\\words.json"), Words[].class);
-		return wordList;
-	}
+    /**
+     * Array of words, automatically populated from the JSON file
+     */
+    public static Words[] wordList;
+    public static Words[] addAllWords() throws JsonSyntaxException, JsonIOException, FileNotFoundException {
+        wordList = new Gson().fromJson(new FileReader(".\\JSON\\words.json"), Words[].class);
+        return wordList;
+    }
 
-	public static ArrayList<String> listWords() {
-		ArrayList<String> listOfWords = new ArrayList<String>();
-		for(Words word : wordList) {
-			listOfWords.add(word.getSpelling());
-		}
-		return listOfWords;
-	}
+    public static ArrayList<String> listWords() {
+        ArrayList<String> listOfWords = new ArrayList<String>();
+        for (Words word : wordList) {
+            listOfWords.add(word.getWord());
+        }
+        return listOfWords;
+    }
 
-//	private void addWord() {
-//		//TODO implement adding words
-//	}
+//    private void addWord() {
+//        //TODO implement adding words
+//    }
 //
-//	private void delWord() {
-//		//TODO implement deleting words
-//	}
+//    private void delWord() {
+//        //TODO implement deleting words
+//    }
 
 }
