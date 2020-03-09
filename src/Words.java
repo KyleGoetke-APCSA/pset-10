@@ -1,52 +1,46 @@
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import com.google.gson.JsonIOException;
-import com.google.gson.JsonSyntaxException;
-import java.util.Collections;
-
 public class Words {
-	public String word;
-	public String definition;
-	ArrayList<Definitions> definitions = new ArrayList<Definitions>();
-	ArrayList<String> synonyms = new ArrayList<String>();
-	ArrayList<String> antonyms = new ArrayList<String>();
+    private String word;
+    private Definitions[] definitions;
+    private String[] synonyms;
+    private String[] antonyms;
 
-	public Words(String word, Definitions definitions, ArrayList<String> synonoyms, ArrayList<String> antonyms) throws JsonSyntaxException, JsonIOException, FileNotFoundException {
-		this.word = word;
-		this.definitions.add(definitions);
-		Collections.copy(this.synonyms, synonyms);
-		Collections.copy(this.antonyms, antonyms);
-	}
+    public Words(String word, Definitions[] definitions, String[] synonyms, String[] antonyms) {
+        this.word = word;
+        this.definitions = definitions;
+        this.synonyms = synonyms;
+        this.antonyms = antonyms;
+    }
 
-	public String getWord() {
+    public String getWord() {
         return this.word;
     }
 
-	public void setDefinition(Definitions definitions) {
-		this.definitions.add(definitions);
-	}
+    public void setWord(String word) {
+        this.word = word;
+    }
 
-	public void addSynonym(String synonym) {
-		this.synonyms.add(synonym);
-	}
+    public Definitions[] getDefinitions() {
+        return this.definitions;
+    }
 
-	public void addAntonym(String antonym) {
-		this.antonyms.add(antonym);
-	}
+    public void setDefinitions(Definitions[] definitions) {
+        this.definitions = definitions;
+    }
 
-	public String getSpelling() {
-		return this.word;
-	}
+    public String[] getSynonyms() {
+        return this.synonyms;
+    }
 
-	public ArrayList<Definitions> getDefintion() {
-		return this.definitions;
-	}
+    public void setSynonyms(String[] synonyms) {
+        this.synonyms = synonyms;
+    }
+    public String[] getAntonyms() {
+        return this.antonyms;
+    }
 
-	public ArrayList<String> getSynonyms() {
-		return this.synonyms;
-	}
+    public void setAntonyms(String[] antonyms) {
+        this.antonyms = antonyms;
+    }
 
-	public ArrayList<String> getAntonyms() {
-		return this.antonyms;
-	}
+
 }

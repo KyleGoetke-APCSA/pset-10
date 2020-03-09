@@ -6,6 +6,12 @@ import java.awt.event.KeyEvent;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultCaret;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
+
 import com.google.gson.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -40,7 +46,7 @@ public class ApplicationWindow {
 	/**
 	 * DLM of words, sorted in ascending order
 	 */
-	private static DefaultListModel<String> getWordsDLM() throws FileNotFoundException {
+	private static DefaultListModel<String> getWordsDLM() throws FileNotFoundException, NullPointerException {
 		Gson gson = new Gson();
         BufferedReader br = new BufferedReader(new FileReader(".\\JSON\\words.json"));
         Words[] words = gson.fromJson(br, Words[].class);
@@ -71,11 +77,98 @@ public class ApplicationWindow {
 		frmKylesEdictionary.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmKylesEdictionary.getContentPane().setLayout(null);
 		Words[] wordList = Dictionary.wordList;
+		
+		/**
+		 * Main container for word information and dialogues
+		 */
+		JScrollPane wordInfo = new JScrollPane();
+		wordInfo.setBounds(214, 11, 725, 452);
+		frmKylesEdictionary.getContentPane().add(wordInfo);
+		
+		JTextPane textPane = new JTextPane();
+		textPane.setText("1. Example (pos)");
+		textPane.setEditable(false);
+		wordInfo.setViewportView(textPane);
+		StyledDocument doc = textPane.getStyledDocument();
+		DefaultCaret caret = (DefaultCaret) textPane.getCaret();
+		caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
+		textPane.setBorder(BorderFactory.createCompoundBorder(
+				textPane.getBorder(), 
+		        BorderFactory.createEmptyBorder(10, 10 ,10 , 10)));
+
+		/**
+		 * Scroll pane that contains the list of words
+		 */
+		JScrollPane wordListSP = new JScrollPane();
+		wordListSP.setBounds(10, 99, 188, 364);
+		frmKylesEdictionary.getContentPane().add(wordListSP);
 
 		/**
 		 * List of words
 		 */
 		JList<String> list = new JList<String>();
+		list.addListSelectionListener(new ListSelectionListener() {
+			boolean ranOnce = false;
+			public void valueChanged(ListSelectionEvent arg0) {
+				if(ranOnce) {
+					ranOnce = false;
+				}else {
+					ranOnce = true;
+					
+					String selectedWord = list.getSelectedValue();
+					System.out.println(selectedWord);
+					
+					try {
+						ArrayList<Words> Words = getWordClass();
+						for (Words word: Words) {
+							if (word.getWord().equals(selectedWord)) {
+								doc.remove(0, doc.getLength());
+								Style bigWord = textPane.addStyle("Style", null);
+								Style header = textPane.addStyle("Style", null);
+								StyleConstants.setFontSize(header, 20);
+								StyleConstants.setFontSize(bigWord, 36);
+								StyleConstants.setBold(bigWord, true);
+								doc.insertString(doc.getLength(), selectedWord.substring(0, 1).toUpperCase() + selectedWord.substring(1) + "\n", bigWord );
+								doc.insertString(doc.getLength(), "\n" ,null );
+								doc.insertString(doc.getLength(), "Definitions\n", header );
+								doc.insertString(doc.getLength(), "\n" ,null );
+								Definitions[] definitions = word.getDefinitions();
+								int definitionCounter = 1;
+								for (Definitions definition : definitions) {									
+									doc.insertString(doc.getLength(), definitionCounter + ". " + selectedWord +" (" + definition.getPartOfSpeech() +")\n\n    "  +  definition.getDefinition() + "\n\n", null);
+									definitionCounter++;
+								}
+								String[] synonyms = word.getSynonyms();
+								if(synonyms.length != 0) {
+									doc.insertString(doc.getLength(),"Synonyms\n" ,header );
+									doc.insertString(doc.getLength(),"\n" ,null );
+									int synonymCounter = 1;
+									for(String synonym : synonyms) {
+										
+										doc.insertString(doc.getLength(), synonymCounter + ". " + synonym + "\n", null);
+										synonymCounter++;
+									}
+								}
+								String[] antonyms = word.getAntonyms();
+								if (antonyms.length != 0) {
+									doc.insertString(doc.getLength(),"\n" ,null );
+									doc.insertString(doc.getLength(),"Antonyms\n" ,header );
+									doc.insertString(doc.getLength(),"\n" ,null );
+									int antonymCounter = 1;
+									for(String antonym : antonyms) {
+										doc.insertString(doc.getLength(), antonymCounter + ". " + antonym + "\n", null);
+										antonymCounter++;
+									}
+								}
+								
+							}
+						}
+					} catch (FileNotFoundException | BadLocationException e) {
+						e.printStackTrace();
+					}					
+				}				
+			}
+		});
 
 		/**
 		 * Button to add a word
@@ -83,6 +176,9 @@ public class ApplicationWindow {
 		JButton btnAdd = new JButton("ADD");
 		btnAdd.addActionListener(e -> {
 		    System.out.println("Add");
+		    /**
+		     * Need to open window to do stuff
+		     */
 //		    addWord(wordToAdd, wordList);
 		});
 		btnAdd.setBounds(10, 11, 89, 23);
@@ -156,20 +252,6 @@ public class ApplicationWindow {
 		    }
 
 		});
-
-		/**
-		 * Main container for word information and dialogues
-		 */
-		JScrollPane wordInfo = new JScrollPane();
-		wordInfo.setBounds(214, 11, 725, 452);
-		frmKylesEdictionary.getContentPane().add(wordInfo);
-
-		/**
-		 * Scroll pane that contains the list of words
-		 */
-		JScrollPane wordListSP = new JScrollPane();
-		wordListSP.setBounds(10, 99, 188, 364);
-		frmKylesEdictionary.getContentPane().add(wordListSP);
 
 		/**
 		 * Automatically populates list from the Array in Dictionary.java
