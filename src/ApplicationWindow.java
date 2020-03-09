@@ -13,12 +13,34 @@ import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 
 import com.google.gson.*;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Separator;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ApplicationWindow {
     private JFrame frmKylesEdictionary;
@@ -106,13 +128,13 @@ public class ApplicationWindow {
         list.addListSelectionListener(new ListSelectionListener() {
             boolean ranOnce = false;
             public void valueChanged(ListSelectionEvent arg0) {
-                if(ranOnce) {
+                if (ranOnce) {
                     ranOnce = false;
-                }else {
+                } else {
                     ranOnce = true;
 
                     String selectedWord = list.getSelectedValue();
-                    System.out.println(selectedWord);
+                    System.out.println("Selected word 2: " + selectedWord);
 
                     try {
                         ArrayList<Words> Words = getWordClass();
@@ -172,9 +194,6 @@ public class ApplicationWindow {
         JButton btnAdd = new JButton("ADD");
         btnAdd.addActionListener(e -> {
             System.out.println("Add");
-            /**
-             * Need to open window to do stuff
-             */
 //            addWord(wordToAdd, wordList);
         });
         btnAdd.setBounds(10, 11, 89, 23);
@@ -355,77 +374,5 @@ public class ApplicationWindow {
             listOfWords.add(word);
         };
         return listOfWords;
-    }
-
-    /**
-     * AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-     */
-    public static void addWord(Words word, Words[] wordList) {
-        Gson gson=new GsonBuilder().setPrettyPrinting().create();
-        String json = gson.toJson(addToList(wordList.length, wordList, word));
-        wordList = addToList(wordList.length, wordList, word);
-        try {
-            FileWriter writer = new FileWriter(".\\JSON\\words.json");
-            wordList = addAllWords(wordList);
-            writer.write(json);
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-     */
-    public static void delWord(Words[] wordsToDel, Words[] wordList) {
-        Words newWordList[] = new Words[wordList.length - wordsToDel.length];
-        Boolean kill = false;
-        for (int i = 0; i < newWordList.length; i++) {
-            kill = false;
-            for (Words deadWord : wordsToDel) {
-                if (wordList[i] == deadWord) {
-                    kill = true;
-                }
-                if (!kill) {
-                    newWordList[i] = wordList[i];
-                } else {
-                    newWordList[i] = wordList[i + 1];
-                }
-            }
-
-        }
-
-        wordList = newWordList;
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String json = gson.toJson(wordList);
-        try {
-            FileWriter writer = new FileWriter(".\\JSON\\words.json");
-            writer.write(json);
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-     */
-    public static Words[] addToList(int n, Words wordList[], Words word) {
-        Words newWordList[] = new Words[n + 1];
-
-        for (int i = 0; i < n; i++) {
-            newWordList[i] = wordList[i];
-        }
-        newWordList[n] = word;
-
-        return newWordList;
-    }
-
-    /**
-     * AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-     */
-    public static Words[] addAllWords(Words[] wordList) throws JsonSyntaxException, JsonIOException, FileNotFoundException {
-        wordList = new Gson().fromJson(new FileReader(".\\JSON\\words.json"), Words[].class);
-        return wordList;
     }
 }
