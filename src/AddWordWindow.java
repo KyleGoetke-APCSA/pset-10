@@ -48,7 +48,8 @@ public class AddWordWindow {
     private void initialize() {
         addWordFrame = new JFrame();
         addWordFrame.setTitle("Add Word");
-        addWordFrame.setBounds(100, 100, 450, 331);
+        addWordFrame.setBounds(100, 100, 465, 350);
+        addWordFrame.setResizable(false);
         addWordFrame.setLocationRelativeTo(null);
         addWordFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         addWordFrame.getContentPane().setLayout(null);
