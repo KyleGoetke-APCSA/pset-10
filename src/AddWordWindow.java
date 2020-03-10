@@ -155,7 +155,7 @@ public class AddWordWindow {
         addWordFrame.getContentPane().add(synonymsTextField);
 
         JLabel synonymsLabel = new JLabel("Synonyms");
-        synonymsLabel.setBounds(6, 171, 61, 16);
+        synonymsLabel.setBounds(6, 171, 65, 16);
         synonymsLabel.setFont(new Font("SansSerif", Font.PLAIN, 13));
         addWordFrame.getContentPane().add(synonymsLabel);
 
@@ -185,7 +185,7 @@ public class AddWordWindow {
         addWordFrame.getContentPane().add(antonymsLabel);
 
         JButton closeWindowButton = new JButton("Close Window");
-        closeWindowButton.setBounds(327, 274, 117, 29);
+        closeWindowButton.setBounds(320, 274, 117, 26);
         closeWindowButton.setFocusPainted(false);
         closeWindowButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -196,7 +196,7 @@ public class AddWordWindow {
         addWordFrame.getContentPane().add(closeWindowButton);
 
         JButton addWordButton = new JButton("Add");
-        addWordButton.setBounds(133, 23, 61, 29);
+        addWordButton.setBounds(138, 23, 61, 26);
         addWordButton.setFocusPainted(false);
         addWordButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -206,19 +206,19 @@ public class AddWordWindow {
         addWordFrame.getContentPane().add(addWordButton);
 
         JButton synonymsAddButton = new JButton("Add");
-        synonymsAddButton.setBounds(133, 188, 61, 29);
+        synonymsAddButton.setBounds(138, 188, 61, 26);
         synonymsAddButton.setFocusPainted(false);
         synonymsAddButton.setFont(new Font("SansSerif", Font.PLAIN, 13));
         addWordFrame.getContentPane().add(synonymsAddButton);
 
         JButton antonymsAddButton = new JButton("Add");
-        antonymsAddButton.setBounds(133, 243, 61, 29);
+        antonymsAddButton.setBounds(138, 243, 61, 26);
         antonymsAddButton.setFocusPainted(false);
         antonymsAddButton.setFont(new Font("SansSerif", Font.PLAIN, 13));
         addWordFrame.getContentPane().add(antonymsAddButton);
 
         JButton addWordPOSbtn = new JButton("Add Word & PoS");
-        addWordPOSbtn.setBounds(287, 133, 157, 29);
+        addWordPOSbtn.setBounds(292, 133, 150, 26);
         addWordPOSbtn.setFocusPainted(false);
         addWordPOSbtn.setFont(new Font("SansSerif", Font.PLAIN, 13));
         addWordFrame.getContentPane().add(addWordPOSbtn);
