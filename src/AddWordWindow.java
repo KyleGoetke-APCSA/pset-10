@@ -80,7 +80,7 @@ public class AddWordWindow {
         wordTextField.setColumns(10);
 
         JLabel addWordLabel = new JLabel("Add Word");
-        addWordLabel.setBounds(235, 6, 166, 40);
+        addWordLabel.setBounds(235, 16, 166, 40);
         addWordLabel.setFont(new Font("SansSerif", Font.PLAIN, 32));
         addWordFrame.getContentPane().add(addWordLabel);
 
