@@ -11,36 +11,11 @@ import javax.swing.text.DefaultCaret;
 import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
-
 import com.google.gson.*;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Separator;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
-import javafx.stage.Stage;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ApplicationWindow {
     private JFrame frmKylesEdictionary;
@@ -98,6 +73,7 @@ public class ApplicationWindow {
         frmKylesEdictionary.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frmKylesEdictionary.getContentPane().setLayout(null);
         Words[] wordList = Dictionary.wordList;
+        System.out.println(wordList);
 
         /**
          * Main container for word information and dialogues
@@ -207,18 +183,6 @@ public class ApplicationWindow {
 					}
 				});
 			}
-			public void actionPerformed(ActionEvent e) {
-				EventQueue.invokeLater(new Runnable() {
-					public void run() {
-						try {
-							AddWordWindow window = new AddWordWindow();
-							window.addWordFrame.setVisible(true);
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-					}
-				});
-			}
         });
         frmKylesEdictionary.getContentPane().add(btnAdd);
 
@@ -307,6 +271,7 @@ public class ApplicationWindow {
 
                     try {
                         ArrayList<Words> Words = getWordClass();
+                        System.out.println(Words);
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
