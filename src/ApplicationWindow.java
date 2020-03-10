@@ -192,11 +192,34 @@ public class ApplicationWindow {
          * Button to add a word
          */
         JButton btnAdd = new JButton("ADD");
-        btnAdd.addActionListener(e -> {
-            System.out.println("Add");
-//            addWord(wordToAdd, wordList);
-        });
         btnAdd.setBounds(10, 11, 89, 23);
+        btnAdd.addActionListener(new java.awt.event.ActionListener(){
+            @Override
+			public void actionPerformed(java.awt.event.ActionEvent arg0) {
+            	EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							AddWordWindow window = new AddWordWindow();
+							window.addWordFrame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+			}
+			public void actionPerformed(ActionEvent e) {
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							AddWordWindow window = new AddWordWindow();
+							window.addWordFrame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+			}
+        });
         frmKylesEdictionary.getContentPane().add(btnAdd);
 
         /**
