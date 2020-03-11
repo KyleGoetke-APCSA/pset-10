@@ -22,13 +22,4 @@ public class Dictionary {
         }
         return listOfWords;
     }
-
-//    private void addWord() {
-//        //TODO implement adding words
-//    }
-//
-//    private void delWord() {
-//        //TODO implement deleting words
-//    }
-
 }
