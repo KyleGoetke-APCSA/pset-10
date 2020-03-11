@@ -3,9 +3,13 @@ public class Definitions {
     private String definition;
     private String partOfSpeech;
 
-    public void definitions(String definition, String partsOfSpeech) {
+    public Definitions(String string, String string2) {
+    	this.definition = definition;
+        this.partOfSpeech = partOfSpeech;
+	}
+
+	public void definitions(String definition, String partsOfSpeech) {
         this.definition = definition;
-        this.partOfSpeech = partsOfSpeech;
     }
 
     public String getDefinition() {
@@ -14,5 +18,13 @@ public class Definitions {
 
     public String getPartOfSpeech() {
         return this.partOfSpeech;
+    }
+
+    public void setDefinition(String definition) {
+        this.definition = definition;
+    }
+
+    public void setPartOfSpeech(String partOfSpeech) {
+        this.partOfSpeech = partOfSpeech;
     }
 }
